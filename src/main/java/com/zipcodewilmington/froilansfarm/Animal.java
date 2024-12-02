@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm;
 
-public abstract class Animal<T extends Edible> implements NoiseMaker, Eater<Edible> {
+public abstract class Animal implements NoiseMaker, Eater<Edible> {
 
-private T edible;
 }

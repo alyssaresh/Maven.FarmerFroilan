@@ -1,8 +1,15 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Chicken extends Animal implements Produce {
+public class Chicken extends Animal implements Produce<Egg> {
 private int chickenId;
-private boolean hasBeenFertilized;
+//private boolean hasBeenFertilized;
+
+//* `Eater` can `eat` an `Edible` object.
+//	* `NoiseMaker` can `makeNoise`
+//            * `Animal` is a `NoiseMaker` and `Eater`
+//* `Chicken` is an `Animal` and a `Produce` which `yield` an
+// `EdibleEgg` if `hasBeenFertilized` flag is `false`.
+
 
     public Chicken(int chickenId) {
         this.chickenId = chickenId;
@@ -26,13 +33,13 @@ private boolean hasBeenFertilized;
     }
 
     @Override
-    public Edible yield() {
+    public Egg yield() {
        return null;
     }
 
-    @Override
+    //@Override
     public boolean hasBeenFertilized() {
-        return false;
+        return hasBeenFertilized;
     }
 
     @Override

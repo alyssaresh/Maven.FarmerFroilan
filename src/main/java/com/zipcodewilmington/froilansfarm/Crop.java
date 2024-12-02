@@ -1,43 +1,28 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class Crop<T extends Edible> implements Produce<T>{
-    private T edible;
-    private boolean fertilized;
-    private boolean harvested;
+private T edible;
 
     public Crop(T edible) {
         this.edible = edible;
-        this.fertilized = false;
-        this.harvested = false;
     }
 
     public Crop() {
     }
 
-
-    @Override
-    public boolean hasBeenFertilized() {
-        return fertilized;
-    }
-
-    @Override
-    public void fertilize() {
-        fertilized = true;
-    }
+//    public boolean hasBeenFertilized() {
+//        return hasBeenFertilized;
+//    }
 
     @Override
     public T yield() {
-        if (!fertilized) {
+        if (!hasBeenFertilized) {
             return null;
         } return edible;
     }
 
 
-    public void harvest() {
-        harvested = true;
-    }
-
-    public boolean hasBeenHarvested() {
-        return harvested;
-    }
+//    public boolean hasBeenHarvested() {
+//        return harvested;
+//    }
 }

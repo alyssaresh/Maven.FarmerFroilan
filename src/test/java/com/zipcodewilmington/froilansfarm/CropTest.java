@@ -9,18 +9,20 @@ public class CropTest {
     @Test
     public void testFertilization() {
         Tomato tomato = new Tomato();
-        Crop<Tomato> crop = new Crop<>(tomato);
-        assertFalse(crop.hasBeenFertilized(), "Crop should not be fertilized initially.");
-        crop.fertilize();
-        assertTrue(crop.hasBeenFertilized(), "Crop should be fertilized after calling fertilize.");
+        TomatoPlant tomatoPlant = new TomatoPlant();
+        Produce<Tomato> crop = new Crop<>(tomato);
+        assertFalse(TomatoPlant.hasBeenFertilized);
+        CropDuster.fertilize(tomatoPlant);
+        assertTrue(TomatoPlant.hasBeenFertilized);
     }
 
 
     @Test
     public void testYieldAfterFertilization() {
         Tomato tomato = new Tomato();
-        Crop<Tomato> tomatoPlant = new Crop<>(tomato);
-        tomatoPlant.fertilize();
+        TomatoPlant tomatoPlant = new TomatoPlant();
+        Produce<Tomato> crop = new Crop<>(tomato);
+        CropDuster.fertilize(tomatoPlant);
         Edible item = tomatoPlant.yield();
         assertNotNull(item, "The crop should yield an edible item after fertilization.");
     }
@@ -28,10 +30,10 @@ public class CropTest {
     @Test
     public void testHarvest() {
         EarCorn corn = new EarCorn();
-        Crop<EarCorn> cornStalk = new Crop<>(corn);
-        cornStalk.fertilize();
-        cornStalk.harvest();
-        assertTrue(cornStalk.hasBeenHarvested(), "The Cornstalk has been harvested.");
+        Produce<EarCorn> cornStalk = new Crop<>(corn);
+        CropDuster.fertilize(cornStalk);
+        tractor.harvest(cornStalk);
+        assertTrue(cornStalk.hasBeenHarvested, "The Cornstalk has been harvested.");
     }
 
     @Test
